@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用require.js进行JavaScript模块化编程 | 袁克强的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="随着互联网的飞速发展，Javascript开发越来越复杂。Javascript的模块化开发显的越来越重要。目前，主要的Javascript模块规范共有两种：CommonJS和AMD。
+CommonJSCommonJS主要指服务器端的javascript模块的规范。它的终极目标是提供一个类似Python，Ruby和Java标准库。这样的话，开发者可以使用CommonJS API编写应用程序，然后这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用require.js进行JavaScript模块化编程">
+<meta property="og:url" content="http://iscript.github.io/2013/12/使用require.js进行JavaScript模块化编程/index.html">
+<meta property="og:site_name" content="袁克强的博客">
+<meta property="og:description" content="随着互联网的飞速发展，Javascript开发越来越复杂。Javascript的模块化开发显的越来越重要。目前，主要的Javascript模块规范共有两种：CommonJS和AMD。
+CommonJSCommonJS主要指服务器端的javascript模块的规范。它的终极目标是提供一个类似Python，Ruby和Java标准库。这样的话，开发者可以使用CommonJS API编写应用程序，然后这些">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/1756966804728113694.png">
+<meta property="og:updated_time" content="2015-10-29T00:47:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用require.js进行JavaScript模块化编程">
+<meta name="twitter:description" content="随着互联网的飞速发展，Javascript开发越来越复杂。Javascript的模块化开发显的越来越重要。目前，主要的Javascript模块规范共有两种：CommonJS和AMD。
+CommonJSCommonJS主要指服务器端的javascript模块的规范。它的终极目标是提供一个类似Python，Ruby和Java标准库。这样的话，开发者可以使用CommonJS API编写应用程序，然后这些">
+  
+    <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 11]>
+  <script>
+  alert("请不要使用IE浏览器访问本站");
+  </script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">袁克强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">求知若渴，虚心若愚。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/GD库/" style="font-size: 10px;">GD库</a> <a href="/tags/Gecko/" style="font-size: 10px;">Gecko</a> <a href="/tags/Laravel/" style="font-size: 12.5px;">Laravel</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/PHP/" style="font-size: 17.5px;">PHP</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/angular-js/" style="font-size: 10px;">angular.js</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grunt/" style="font-size: 12.5px;">grunt</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/psr/" style="font-size: 10px;">psr</a> <a href="/tags/require-js/" style="font-size: 15px;">require.js</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/text-js/" style="font-size: 10px;">text.js</a> <a href="/tags/webkit/" style="font-size: 10px;">webkit</a> <a href="/tags/wordpress/" style="font-size: 12.5px;">wordpress</a> <a href="/tags/二次开发/" style="font-size: 10px;">二次开发</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a> <a href="/tags/产品/" style="font-size: 10px;">产品</a> <a href="/tags/佛学/" style="font-size: 10px;">佛学</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/定时/" style="font-size: 10px;">定时</a> <a href="/tags/开源协议/" style="font-size: 10px;">开源协议</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/推送/" style="font-size: 10px;">推送</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/框架/" style="font-size: 12.5px;">框架</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/理财/" style="font-size: 10px;">理财</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/转载/" style="font-size: 12.5px;">转载</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/">简书</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">PHP开发工程师@温州。博客关于：技术、生活、读书、互联网。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">袁克强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">袁克强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">求知若渴，虚心若愚。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-使用require.js进行JavaScript模块化编程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/12/使用require.js进行JavaScript模块化编程/" class="article-date">
+  	<time datetime="2013-12-10T00:00:00.000Z" itemprop="datePublished">2013-12-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用require.js进行JavaScript模块化编程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AMD/">AMD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/require-js/">require.js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着互联网的飞速发展，Javascript开发越来越复杂。Javascript的模块化开发显的越来越重要。<br>目前，主要的Javascript模块规范共有两种：CommonJS和AMD。</p>
+<h3 id="CommonJS">CommonJS</h3><p>CommonJS主要指服务器端的javascript模块的规范。它的终极目标是提供一个类似Python，Ruby和Java标准库。这样的话，开发者可以使用CommonJS API编写应用程序，然后这些应用可以运行在不同的JavaScript解释器和不同的主机环境中。CommonJS的实现有Node.js、CouchDB等。  </p>
+<h3 id="AMD规范">AMD规范</h3><p>AMD是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。require.js是AMD规范最著名的实现。  </p>
+<h3 id="选择哪种？">选择哪种？</h3><p>CommonJS规范加载模块是同步的，也就是说，只有加载完成，才能执行后面的操作。AMD规范则是异步加载模块，允许指定回调函数。由于Node.js主要用于服务器编程，模块文件一般都已经存在于本地硬盘，所以加载起来比较快，不用考虑非同步加载的方式，所以CommonJS规范比较适用。但是，如果是浏览器环境，要从服务器端加载模块js，加载的过程中，浏览器会停止网页渲。这时就建议采用异步加载方式，很好的避免模块加载的过程中网页失去响应。  </p>
+<h3 id="require-js介绍">require.js介绍</h3><p>Require.JS是一个基于AMD规范的javascript模块加载框架。实现js文件的异步加载，管理模块之间的依赖性，提升网页的加载速度。<br>官网：<a href="www.requirejs.org/">www.requirejs.org/</a>  </p>
+<p><img src="http://7xnv0h.com1.z0.glb.clouddn.com/1756966804728113694.png" alt="alt require.js">  </p>
+<h3 id="在网页中使用require-js">在网页中使用require.js</h3><pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/require.js"</span> <span class="attribute">data-main</span>=<span class="value">"js/main"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<p>下载后在网页中引入require.js并指定data-main属性。该属性的作用是指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。 </p>
+<h3 id="定义模块">定义模块</h3><p>根据AMD规范，定义一个模块采用define函数  </p>
+<pre><code class="javascript">define(id, dependencies, factory);
+</code></pre>
+<p>参数：<br>  id : 模块标示符[可省略]<br>  dependencies : 所依赖的模块[可省略]<br>  factory : 模块的实现，或者一个JavaScript对象。 </p>
+<h3 id="require-js定义模块的几种方式">require.js定义模块的几种方式</h3><p>1.定义一个最简单的模块：  </p>
+<pre><code class="javascript">define({
+    color: <span class="string">"black"</span>,
+    size: <span class="string">"unisize"</span>
+});
+</code></pre>
+<p>2.传入匿名函数定义一个模块：  </p>
+<pre><code class="javascript">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+    <span class="keyword">return</span> {
+        color: <span class="string">"black"</span>,
+        size: <span class="string">"unisize"</span>
+    }
+});
+</code></pre>
+<p>3.定义一个模块并依赖于cart.js  </p>
+<pre><code class="javascript">define([<span class="string">"./cart"</span>], <span class="function"><span class="keyword">function</span>(<span class="params">cart</span>) </span>{
+    <span class="keyword">return</span> {
+        color: <span class="string">"blue"</span>,
+        size: <span class="string">"large"</span>,
+        addToCart: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+            cart.add(<span class="keyword">this</span>);
+        }
+    }
+});
+</code></pre>
+<ol>
+<li>定义一个名称为hello且依赖于cart.js的模块  </li>
+</ol>
+<pre><code class="javascript">define(<span class="string">"hello"</span>,[<span class="string">"./cart"</span>],<span class="function"><span class="keyword">function</span>(<span class="params">cart</span>) </span>{
+    <span class="comment">//do something</span>
+});
+</code></pre>
+<p>5.兼容commonJS模块的写法(使用require获取依赖模块，使用exports导出API)  </p>
+<pre><code class="javascript">define(<span class="function"><span class="keyword">function</span>(<span class="params">require, exports, module</span>) </span>{
+    <span class="keyword">var</span> base = <span class="built_in">require</span>(<span class="string">'base'</span>);
+    exports.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+        <span class="comment">// todo with module base</span>
+    } 
+});
+</code></pre>
+<h3 id="require-js加载模块">require.js加载模块</h3><p>require.js通过require()函数来异步加载模块，其接受两个参数。<br>第一个参数是一个数组，表示所依赖的模块。第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用，且加载的过程中浏览器不会失去响应。  </p>
+<pre><code class="javascript"> <span class="comment">//main.js</span>
+<span class="built_in">require</span>([<span class="string">'cart'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">cart</span>)</span>{
+     <span class="comment">//假设我们使用前面第2种方法定义一个模块cart.js,然后这里加载cart.js,下面输出"black"</span>
+    alert(cart.color);
+});
+</code></pre>
+<h3 id="模块加载的配置">模块加载的配置</h3><p>使用require.config()方法，我们可以对模块的加载行为进行自定义配置。<br>require.config()方法一般写在主模块(main.js)最开始。参数为一个对象，通过对象的键值对加载进行配置:  </p>
+<pre><code class="javascript"><span class="built_in">require</span>.config({
+    paths: {
+        <span class="string">"angular"</span>: <span class="string">"https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min"</span>,
+        <span class="string">"angularRoute"</span>: <span class="string">"../bower_components/angular-route/angular-route"</span>
+    },
+    shim: {
+        <span class="string">'angular'</span> : {<span class="string">'exports'</span> : <span class="string">'angular'</span>},
+        <span class="string">'angularRoute'</span>: {deps:[<span class="string">'angular'</span>]}
+    }
+});
+</code></pre>
+<p>上面代码意思是配置angular.js及angular-route.js的加载路径，并配置angular的外部输出名、angularRoute依赖于angular(加载顺序)。  </p>
+<p>其他一些配置：  </p>
+<ul>
+<li>baseUrl ： 指定模块根路径</li>
+<li>paths ： 指定模块的加载路径</li>
+<li>shim ：声明依赖项、外部输出等</li>
+<li>map : 对于给定的相同的模块名，加载不同的模块，而不是加载相同的模块</li>
+<li>config : 传递一个配置信息到模块</li>
+<li>packages : 配置从CommonJS 包来加载模块</li>
+<li>deps : 全局配置模块的依赖项的数组</li>
+<li>callback ： 所有依赖项加载后执行的回调函数</li>
+<li>…</li>
+</ul>
+<h3 id="require-js一些插件">require.js一些插件</h3><p>domready插件，可以让回调函数在页面DOM结构加载完成后再运行。<br>text插件，让require.js除了能加载js文件还能加载txt文件、css文件等。<br>插件清单：<a href="https://github.com/jrburke/requirejs/wiki/Plugins" target="_blank" rel="external">https://github.com/jrburke/requirejs/wiki/Plugins</a></p>
+<hr>
+<p>呼，看了半天官方文档终于把require.js基本用法写完了。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/12/[require.js插件] text.js异步加载文本资源/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          text.js异步加载文本资源[require.js插件]
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/11/常见开源协议介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见开源协议介绍</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="使用require.js进行JavaScript模块化编程" data-title="使用require.js进行JavaScript模块化编程" data-url="http://iscript.github.io/2013/12/使用require.js进行JavaScript模块化编程/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 袁克强
+    	</div>
+      	<div class="footer-right">
+      		by <a href="http://hexo.io/" target="_blank">Hexo</a> <script src="http://s16.cnzz.com/stat.php?id=5673277&web_id=5673277&show=pic1" language="JavaScript"></script>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39df0d7283640c00f78b622f3b7c72d6' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

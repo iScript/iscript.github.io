@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>强大的Web包管理工具-bower | 袁克强的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="强大的Web包管理工具-bower
+前言每当我们开始一个新的web前端项目，我们做个第一件事都是去下载相应的js类库文件。如我们项目要用到Jquery，我们就要去Jquery的官网下载Jquery库。接着若我们的前端UI要用到Bootstrap，我们还要去Bootstrap的官网下载Bootstrap,而最新的Bootstrap3需要Jquery1.9以上的支持，我们不得不又要检查Jquery的版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强大的Web包管理工具-bower">
+<meta property="og:url" content="http://iscript.github.io/2013/11/强大的Web包管理工具-bower/index.html">
+<meta property="og:site_name" content="袁克强的博客">
+<meta property="og:description" content="强大的Web包管理工具-bower
+前言每当我们开始一个新的web前端项目，我们做个第一件事都是去下载相应的js类库文件。如我们项目要用到Jquery，我们就要去Jquery的官网下载Jquery库。接着若我们的前端UI要用到Bootstrap，我们还要去Bootstrap的官网下载Bootstrap,而最新的Bootstrap3需要Jquery1.9以上的支持，我们不得不又要检查Jquery的版">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/4938196991511821694.jpg">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/3147453189678882323.jpg">
+<meta property="og:updated_time" content="2015-10-28T09:27:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强大的Web包管理工具-bower">
+<meta name="twitter:description" content="强大的Web包管理工具-bower
+前言每当我们开始一个新的web前端项目，我们做个第一件事都是去下载相应的js类库文件。如我们项目要用到Jquery，我们就要去Jquery的官网下载Jquery库。接着若我们的前端UI要用到Bootstrap，我们还要去Bootstrap的官网下载Bootstrap,而最新的Bootstrap3需要Jquery1.9以上的支持，我们不得不又要检查Jquery的版">
+  
+    <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 11]>
+  <script>
+  alert("请不要使用IE浏览器访问本站");
+  </script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">袁克强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">求知若渴，虚心若愚。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/GD库/" style="font-size: 10px;">GD库</a> <a href="/tags/Gecko/" style="font-size: 10px;">Gecko</a> <a href="/tags/Laravel/" style="font-size: 12.5px;">Laravel</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/PHP/" style="font-size: 17.5px;">PHP</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/angular-js/" style="font-size: 10px;">angular.js</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grunt/" style="font-size: 12.5px;">grunt</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/psr/" style="font-size: 10px;">psr</a> <a href="/tags/require-js/" style="font-size: 15px;">require.js</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/text-js/" style="font-size: 10px;">text.js</a> <a href="/tags/webkit/" style="font-size: 10px;">webkit</a> <a href="/tags/wordpress/" style="font-size: 12.5px;">wordpress</a> <a href="/tags/二次开发/" style="font-size: 10px;">二次开发</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a> <a href="/tags/产品/" style="font-size: 10px;">产品</a> <a href="/tags/佛学/" style="font-size: 10px;">佛学</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/定时/" style="font-size: 10px;">定时</a> <a href="/tags/开源协议/" style="font-size: 10px;">开源协议</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/推送/" style="font-size: 10px;">推送</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/框架/" style="font-size: 12.5px;">框架</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/理财/" style="font-size: 10px;">理财</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/转载/" style="font-size: 12.5px;">转载</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/">简书</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">PHP开发工程师@温州。博客关于：技术、生活、读书、互联网。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">袁克强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">袁克强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">求知若渴，虚心若愚。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-强大的Web包管理工具-bower" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/11/强大的Web包管理工具-bower/" class="article-date">
+  	<time datetime="2013-11-08T00:00:00.000Z" itemprop="datePublished">2013-11-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      强大的Web包管理工具-bower
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>强大的Web包管理工具-bower</p>
+<h2 id="前言">前言</h2><p>每当我们开始一个新的web前端项目，我们做个第一件事都是去下载相应的js类库文件。<br>如我们项目要用到Jquery，我们就要去Jquery的官网下载Jquery库。<br>接着若我们的前端UI要用到Bootstrap，我们还要去Bootstrap的官网下载Bootstrap,而最新的Bootstrap3需要Jquery1.9以上的支持，我们不得不又要检查Jquery的版本是否合适，不合适的话要重新下载。<br>甚至复杂一点的angular.js的项目我们可能要依赖angular的一些模块：angular-route、angular-animate等。<br>像angular-route.js这个路由模块在angular1.2之前是内置于angular的，而angular1.2之后是从angular分离出来的(上次升级angular被坑了2小时。。)。<br>我去，这些问题想想都头疼。这时候我们需要一个工具来管理这些库及其依赖。  </p>
+<h3 id="bower介绍">bower介绍</h3><p>bower是twitter推出的一款web软件包管理工具，使用nodejs开发，开源。<br>提供添加新web包，更新web包，删除web包，发布web包，管理包依赖等功能。  </p>
+<h3 id="bower安装dd">bower安装dd</h3><p>bower的安装是通过node.js的npm管理工具来安装的 ：     </p>
+<pre><code class="bash">$ npm install -g bower
+</code></pre>
+<h3 id="bower命令">bower命令</h3><p>安装完成后，我们可以通过bower –help来查看bower有什么命令<br><img src="http://7xnv0h.com1.z0.glb.clouddn.com/4938196991511821694.jpg" alt="Alt ddd"><br>各命令说明：    </p>
+<ul>
+<li>cache : bower缓存管理</li>
+<li>help : 显示Bower命令的帮助信息</li>
+<li>home : 通过浏览器打开一个包的github发布页</li>
+<li>info : 查看包的信息</li>
+<li>init : 创建bower.json文件</li>
+<li>install : 安装包到项目</li>
+<li>link : 在本地bower库建立一个项目链接</li>
+<li>list : 列出项目已安装的包</li>
+<li>lookup : 根据包名查询包的URL</li>
+<li>prune : 删除项目无关的包</li>
+<li>register : 注册一个包</li>
+<li>search : 搜索包</li>
+<li>update : 更新项目的包</li>
+<li>uninstall : 删除项目的包  </li>
+</ul>
+<h3 id="bower使用">bower使用</h3><p>使用bower来安装包及依赖：  </p>
+<p>bower install    – 根据bower.json配置文件来安装web包。<br>bower install <package>   – 根据包名称来安装web包，默认安装最新版。<br>bower install <package>#<version>    – 安装该版本的web包，#号好后跟版本号。<br>bower install <name>=<package>#<version>    – 使用别名安装该版本的web包。  </version></package></name></version></package></package></p>
+<p>使用bower来安装bootstrap ：  </p>
+<pre><code class="bash">$ <span class="built_in">cd</span> /www/<span class="built_in">test</span>    
+$ bower install bootstrap
+</code></pre>
+<p>执行以上命令自动安装bootstrap框架及它所依赖的最新版的Jquery。</p>
+<p>通过bower list –path 你可以得到每个类库的路径名称映射。<br><img src="http://7xnv0h.com1.z0.glb.clouddn.com/3147453189678882323.jpg" alt="Alt bower"><br>这样就能再项目中使用对应的类库了。  </p>
+<pre><code class="html"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bower_components/jquery/jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre>
+<p>其他命令的使用：<br>还有其他命令用法也基本大同小异：<br>如bower update jquery 更新jquery包。 bower uninstall jquery 删除jquery包。<br>这里就不多说了大家动手敲一遍就会了。  </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/11/使用PHP获取所有的汉字/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用PHP获取所有的汉字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/10/使用Composer来管理PHP的依赖包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Composer来管理PHP的依赖包</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="强大的Web包管理工具-bower" data-title="强大的Web包管理工具-bower" data-url="http://iscript.github.io/2013/11/强大的Web包管理工具-bower/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 袁克强
+    	</div>
+      	<div class="footer-right">
+      		by <a href="http://hexo.io/" target="_blank">Hexo</a> <script src="http://s16.cnzz.com/stat.php?id=5673277&web_id=5673277&show=pic1" language="JavaScript"></script>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39df0d7283640c00f78b622f3b7c72d6' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

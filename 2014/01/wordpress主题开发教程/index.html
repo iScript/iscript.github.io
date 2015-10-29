@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>wordpress主题开发教程 | 袁克强的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="WordPress是一种使用PHP语言开发的博客平台，免费、开源。
+作为最流行的博客平台，海量的插件和主题可以说是WordPress 最大的特色了，没有哪一个Blog 平台拥有如此多的插件和主题，拥有如此多的用户和爱好者。  
+  
+下面介绍如何开发设计你自己的 WordPress 主题。  
+主题的剖析WordPress主题目录位于 wp-content/themes/。主题目录拥有所有样式文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wordpress主题开发教程">
+<meta property="og:url" content="http://iscript.github.io/2014/01/wordpress主题开发教程/index.html">
+<meta property="og:site_name" content="袁克强的博客">
+<meta property="og:description" content="WordPress是一种使用PHP语言开发的博客平台，免费、开源。
+作为最流行的博客平台，海量的插件和主题可以说是WordPress 最大的特色了，没有哪一个Blog 平台拥有如此多的插件和主题，拥有如此多的用户和爱好者。  
+  
+下面介绍如何开发设计你自己的 WordPress 主题。  
+主题的剖析WordPress主题目录位于 wp-content/themes/。主题目录拥有所有样式文件">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/6597301763611602432.png">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/1828742923789379496.jpg">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/6599333661098147095.jpg">
+<meta property="og:updated_time" content="2015-10-29T01:26:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="wordpress主题开发教程">
+<meta name="twitter:description" content="WordPress是一种使用PHP语言开发的博客平台，免费、开源。
+作为最流行的博客平台，海量的插件和主题可以说是WordPress 最大的特色了，没有哪一个Blog 平台拥有如此多的插件和主题，拥有如此多的用户和爱好者。  
+  
+下面介绍如何开发设计你自己的 WordPress 主题。  
+主题的剖析WordPress主题目录位于 wp-content/themes/。主题目录拥有所有样式文件">
+  
+    <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 11]>
+  <script>
+  alert("请不要使用IE浏览器访问本站");
+  </script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">袁克强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">求知若渴，虚心若愚。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/GD库/" style="font-size: 10px;">GD库</a> <a href="/tags/Gecko/" style="font-size: 10px;">Gecko</a> <a href="/tags/Laravel/" style="font-size: 12.5px;">Laravel</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/PHP/" style="font-size: 17.5px;">PHP</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/angular-js/" style="font-size: 10px;">angular.js</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grunt/" style="font-size: 12.5px;">grunt</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/psr/" style="font-size: 10px;">psr</a> <a href="/tags/require-js/" style="font-size: 15px;">require.js</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/text-js/" style="font-size: 10px;">text.js</a> <a href="/tags/webkit/" style="font-size: 10px;">webkit</a> <a href="/tags/wordpress/" style="font-size: 12.5px;">wordpress</a> <a href="/tags/二次开发/" style="font-size: 10px;">二次开发</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a> <a href="/tags/产品/" style="font-size: 10px;">产品</a> <a href="/tags/佛学/" style="font-size: 10px;">佛学</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/定时/" style="font-size: 10px;">定时</a> <a href="/tags/开源协议/" style="font-size: 10px;">开源协议</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/推送/" style="font-size: 10px;">推送</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/框架/" style="font-size: 12.5px;">框架</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/理财/" style="font-size: 10px;">理财</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/转载/" style="font-size: 12.5px;">转载</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/">简书</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">PHP开发工程师@温州。博客关于：技术、生活、读书、互联网。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">袁克强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">袁克强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">求知若渴，虚心若愚。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-wordpress主题开发教程" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/01/wordpress主题开发教程/" class="article-date">
+  	<time datetime="2014-01-05T00:06:17.000Z" itemprop="datePublished">2014-01-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      wordpress主题开发教程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/">wordpress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二次开发/">二次开发</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>WordPress是一种使用PHP语言开发的博客平台，免费、开源。</p>
+<p>作为最流行的博客平台，海量的插件和主题可以说是WordPress 最大的特色了，没有哪一个Blog 平台拥有如此多的插件和主题，拥有如此多的用户和爱好者。  </p>
+<p><img src="http://7xnv0h.com1.z0.glb.clouddn.com/6597301763611602432.png" alt="ykq">  </p>
+<p>下面介绍如何开发设计你自己的 WordPress 主题。  </p>
+<h3 id="主题的剖析">主题的剖析</h3><p>WordPress主题目录位于 wp-content/themes/。主题目录拥有所有样式文件、模板文件、可选的函数文件 (functions.php)、JavaScript 文件、图片等。比如说一个叫做 “test” 的主题就会放在 wp-content/themes/test/目录里。  </p>
+<p>WordPress 主题一般由三种文件构成：  </p>
+<ol>
+<li>样式表文件 style.css， 控制着页面的外观。  </li>
+<li>函数文件 (functions.php)。  </li>
+<li>模板文件，它控制着从数据库中调出的数据所呈现的外观。</li>
+</ol>
+<h3 id="主题样式表">主题样式表</h3><p>style.css为该主题的主题样式，该样式文件须在文件开头以注释的形式列出主题的详细信息。  </p>
+<pre><code class="css"><span class="comment">/*
+
+Theme Name: ykqTheme
+Theme URI: yuankeqiang.lofter.com
+Author: ykq
+Tag : hehe
+.......
+
+*/</span>
+</code></pre>
+<p>这样启用主题后wordpress会自动读取该主题的相关信息，我们可以在后台-&gt;外观-&gt;主题-&gt;主题详情 来查看我们我们的主题信息。  </p>
+<p><img src="http://7xnv0h.com1.z0.glb.clouddn.com/1828742923789379496.jpg" alt="ykq">  </p>
+<p>缩略图来自哪里：</p>
+<p>在主题目录创建一张图片重命名为screenshot.png或者screenshot.jpg，wordpress会自动读取该图片为主题的缩略图。</p>
+<p>还有一个样式rtl.css：</p>
+<p>作用是如果网站的阅读方向是自右向左的，他会自动被包含进来。你可以使用 the RTLer 插件来生成这个文件。</p>
+<h3 id="函数文件">函数文件</h3><p>一个主题可以使用一个函数文件，位于主题的根目录，叫做 functions.php。</p>
+<p>这个文件就像一个插件， 如果它位于你正在使用的主题里的话，他在你的主题初始化的时候就会自动加载(后台页面和前台页面都一样加载)。对于这个文件的建议： </p>
+<ul>
+<li>启用主题功能，例如：侧边栏，菜单，文章缩略图，文章格式，自定义标题栏。</li>
+<li>定义用于模板文件中的函数。</li>
+<li>设置一个选项菜单，让网站拥有者可以自定义颜色，样式，和你的主题的其他特性。</li>
+</ul>
+<h3 id="模板文件">模板文件</h3><p>模板是一些PHP文件，不同的模板代表不同的页面：</p>
+<p>常见模板如下：</p>
+<ul>
+<li>index.php 主模板.必须.</li>
+<li>comments.php 留言区域文件(包括留言列表和留言框) </li>
+<li>single.php 日志单独页面模板。显示单独的一篇文章时被调用。  </li>
+<li>single-{post-type}.php 自定义单独页面模板。例如， </li>
+<li>single-books.php 展示自定义文章类型为 books的文章。</li>
+<li>page.php 页面文件 </li>
+<li>archvie.php 分类和日期存档页文件</li>
+<li>tag.php 标签模板。</li>
+<li>author.php 作者模板。作者页面调用</li>
+<li>search.php 搜索页面文件  </li>
+<li>header.php 网页头部文件 </li>
+<li>sidebar.php 网页侧边栏文件 </li>
+<li>footer.php 网页底部文件 </li>
+<li>image.php 图片附件模板。当在wordpress中查看单个图片时将调用此模板</li>
+<li>404.php 错误页面 模板。当WordPress无法查找到匹配查询的日志或页面时，使用404.php文件。</li>
+</ul>
+<h3 id="自定义单页模板">自定义单页模板</h3><p>我们可以自定义页面模板page.php，创建一个自定义页面需要首先创建一个文件，建议文件的命名为page-{name}.php,</p>
+<p>假设我们创建一个公司简介的页面，自定义页面可以叫做page-about.php。在page-about.php的文件顶部必须写上页面名称：</p>
+<pre><code class="php"><span class="preprocessor">&lt;?php</span> <span class="comment">/* Template Name: 公司简介  */</span>  <span class="preprocessor">?&gt;</span>
+</code></pre>
+<p>这样我们创建页面的时候就可以选择我们自定义的模板：<br><img src="http://7xnv0h.com1.z0.glb.clouddn.com/6599333661098147095.jpg" alt="ykq">  </p>
+<p>注意：我们可以在主题文件夹的任何地方创建页面模板，若模板文件很多的话我们可以创建一个文件夹如page-templates，然后将模板文件都放到该文件夹下。  </p>
+<h3 id="包含模板">包含模板</h3><p>为了加载其他模板(除了 header, sidebar, footer 这些已经被预先定义了加载命令的例如 get_header())到某个模板中，你可以使用 get_template_part()。这利于主题的代码重用。  </p>
+<h3 id="Wordpress_函数代码">Wordpress 函数代码</h3><p>创建完模板，如何在模板中动态显示内容？那就要用到wordpress的函数代码了  </p>
+<p>WordPress 中定义了许多有用的 PHP 函数,大概有几百个。参考：<a href="http://codex.wordpress.org/zh-cn:%E5%87%BD%E6%95%B0%E5%8F%82%E8%80%83" target="_blank" rel="external">http://codex.wordpress.org/zh-cn:%E5%87%BD%E6%95%B0%E5%8F%82%E8%80%83</a>  </p>
+<p>一些常见的函数有：  </p>
+<pre><code class="php">
+<span class="preprocessor">&lt;?php</span> the_content(); <span class="preprocessor">?&gt;</span> 日志内容 
+<span class="preprocessor">&lt;?php</span> <span class="keyword">if</span>(have_posts()) : <span class="preprocessor">?&gt;</span> 确认是否有日志 
+<span class="preprocessor">&lt;?php</span> <span class="keyword">while</span>(have_posts()) : the_post(); <span class="preprocessor">?&gt;</span> 如果有，则显示全部日志 
+<span class="preprocessor">&lt;?php</span> <span class="keyword">endwhile</span>; <span class="preprocessor">?&gt;</span> 结束PHP函数”<span class="keyword">while</span>” 
+<span class="preprocessor">&lt;?php</span> <span class="keyword">endif</span>; <span class="preprocessor">?&gt;</span> 结束PHP函数”<span class="keyword">if</span>” 
+<span class="preprocessor">&lt;?php</span> get_header(); <span class="preprocessor">?&gt;</span> header.php文件的内容 
+<span class="preprocessor">&lt;?php</span> get_sidebar(); <span class="preprocessor">?&gt;</span> sidebar.php文件的内容 
+<span class="preprocessor">&lt;?php</span> get_footer(); <span class="preprocessor">?&gt;</span> footer.php文件的内容 
+<span class="preprocessor">&lt;?php</span> the_time(’m-d-y’) <span class="preprocessor">?&gt;</span> 显示格式为”<span class="number">10</span>-<span class="number">12</span>-<span class="number">13</span>″的日期 
+<span class="preprocessor">&lt;?php</span> comments_popup_link(); <span class="preprocessor">?&gt;</span> 显示一篇日志的留言链接 
+<span class="preprocessor">&lt;?php</span> the_title(); <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的标题 
+<span class="preprocessor">&lt;?php</span> the_permalink() <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的永久链接/URL地址 
+<span class="preprocessor">&lt;?php</span> the_category(’, ‘) <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的所属分类 
+<span class="preprocessor">&lt;?php</span> the_author(); <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的作者 
+<span class="preprocessor">&lt;?php</span> the_ID(); <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的ID 
+<span class="preprocessor">&lt;?php</span> edit_post_link(); <span class="preprocessor">?&gt;</span> 显示一篇日志或页面的编辑链接 
+<span class="preprocessor">&lt;?php</span> get_links_list(); <span class="preprocessor">?&gt;</span> 显示链接 
+<span class="preprocessor">&lt;?php</span> comments_template(); <span class="preprocessor">?&gt;</span> comments.php文件的内容 
+<span class="preprocessor">&lt;?php</span> wp_list_pages(); <span class="preprocessor">?&gt;</span> 显示一份博客的页面列表 
+<span class="preprocessor">&lt;?php</span> wp_list_cats(); <span class="preprocessor">?&gt;</span> 显示一份博客的分类列表 
+<span class="preprocessor">&lt;?php</span> next_post_link(’ %link ‘) <span class="preprocessor">?&gt;</span> 下一篇日志的URL地址 
+<span class="preprocessor">&lt;?php</span> previous_post_link(’%link’) <span class="preprocessor">?&gt;</span> 上一篇日志的URL地址 
+<span class="preprocessor">&lt;?php</span> get_calendar(); <span class="preprocessor">?&gt;</span> 调用日历 
+<span class="preprocessor">&lt;?php</span> wp_get_archives() <span class="preprocessor">?&gt;</span> 显示一份博客的日期存档列表 
+<span class="preprocessor">&lt;?php</span> posts_nav_link(); <span class="preprocessor">?&gt;</span> 显示较新日志链接(上一页)和较旧日志链接（下一页） 
+<span class="preprocessor">&lt;?php</span> bloginfo(’description’); <span class="preprocessor">?&gt;</span> 显示博客的描述信息
+
+<span class="preprocessor">&lt;?php</span> bloginfo(’name’); <span class="preprocessor">?&gt;</span> 网站标题 
+<span class="preprocessor">&lt;?php</span> wp_title(); <span class="preprocessor">?&gt;</span> 日志或页面标题 
+<span class="preprocessor">&lt;?php</span> bloginfo(’stylesheet_url’); <span class="preprocessor">?&gt;</span> Wordpress主题样式表文件style.css的相对地址 
+<span class="preprocessor">&lt;?php</span> bloginfo(’pingback_url’); <span class="preprocessor">?&gt;</span> Wordpress博客的Pingback地址 
+<span class="preprocessor">&lt;?php</span> bloginfo(’template_url’); <span class="preprocessor">?&gt;</span> Wordpress主题文件的相对地址 
+<span class="preprocessor">&lt;?php</span> bloginfo(’version’); <span class="preprocessor">?&gt;</span> 博客的Wordpress版本 
+<span class="preprocessor">&lt;?php</span> bloginfo(’url’); <span class="preprocessor">?&gt;</span> Wordpress博客的绝对地址 
+<span class="preprocessor">&lt;?php</span> bloginfo(’charset’); <span class="preprocessor">?&gt;</span> 网站的字符编码格式
+</code></pre>
+<h3 id="其他">其他</h3><p>到目前为止基本讲完了wordpress的主题开发</p>
+<p>简单的说，开发一个wordpress分以下几步：</p>
+<ol>
+<li>在wp-content/themes/文件夹下创建属于你自己的主题文件夹</li>
+<li>然后在主题文件夹下创建2个必须的基本文件 index.php 和style.css </li>
+<li>接着根据需要创建其他模板和文件及利用wordpress内置的函数在模板中动态显示内容</li>
+<li>最后登陆后台在外观中启用我们创建的主题就可以了</li>
+</ol>
+<p>当然，还有个简便的方法就是把wordpress默认的主题复制一份,然后在其基础上二次开发就OK了。</p>
+<h3 id="最后">最后</h3><p>什么？看完了文章你还不会wordpress的主题开发？</p>
+<p>那一定是你看的方式不对，请刷个牙再来看一遍。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/01/Wordpress插件开发/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Wordpress插件开发
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/01/Angular.js整合socket.io/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular.js整合socket.io</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="wordpress主题开发教程" data-title="wordpress主题开发教程" data-url="http://iscript.github.io/2014/01/wordpress主题开发教程/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 袁克强
+    	</div>
+      	<div class="footer-right">
+      		by <a href="http://hexo.io/" target="_blank">Hexo</a> <script src="http://s16.cnzz.com/stat.php?id=5673277&web_id=5673277&show=pic1" language="JavaScript"></script>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39df0d7283640c00f78b622f3b7c72d6' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

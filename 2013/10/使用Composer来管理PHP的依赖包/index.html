@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>使用Composer来管理PHP的依赖包 | 袁克强的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="如今有大量的PHP函数库、框架和组件可供选择，一个项目中可能会使用其中的若干——这就是项目的依赖。到目前为止，PHP还没有有效的 项目依赖管理方案。即使你手工的管理它们，你还不得不处理它们的自动加载问题。
+Composer 是PHP(5.3.2+)中用来管理依赖(dependency)关系的工具。你可以在自己的项目中声明所依赖的外部工具库(libraries)，Composer会帮你安装这些依赖的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Composer来管理PHP的依赖包">
+<meta property="og:url" content="http://iscript.github.io/2013/10/使用Composer来管理PHP的依赖包/index.html">
+<meta property="og:site_name" content="袁克强的博客">
+<meta property="og:description" content="如今有大量的PHP函数库、框架和组件可供选择，一个项目中可能会使用其中的若干——这就是项目的依赖。到目前为止，PHP还没有有效的 项目依赖管理方案。即使你手工的管理它们，你还不得不处理它们的自动加载问题。
+Composer 是PHP(5.3.2+)中用来管理依赖(dependency)关系的工具。你可以在自己的项目中声明所依赖的外部工具库(libraries)，Composer会帮你安装这些依赖的">
+<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/2853030364039488816.png">
+<meta property="og:updated_time" content="2015-10-28T07:23:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Composer来管理PHP的依赖包">
+<meta name="twitter:description" content="如今有大量的PHP函数库、框架和组件可供选择，一个项目中可能会使用其中的若干——这就是项目的依赖。到目前为止，PHP还没有有效的 项目依赖管理方案。即使你手工的管理它们，你还不得不处理它们的自动加载问题。
+Composer 是PHP(5.3.2+)中用来管理依赖(dependency)关系的工具。你可以在自己的项目中声明所依赖的外部工具库(libraries)，Composer会帮你安装这些依赖的">
+  
+    <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 11]>
+  <script>
+  alert("请不要使用IE浏览器访问本站");
+  </script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">袁克强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">求知若渴，虚心若愚。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/GD库/" style="font-size: 10px;">GD库</a> <a href="/tags/Gecko/" style="font-size: 10px;">Gecko</a> <a href="/tags/Laravel/" style="font-size: 12.5px;">Laravel</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/PHP/" style="font-size: 17.5px;">PHP</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/angular-js/" style="font-size: 10px;">angular.js</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grunt/" style="font-size: 12.5px;">grunt</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/node-js/" style="font-size: 12.5px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/psr/" style="font-size: 10px;">psr</a> <a href="/tags/require-js/" style="font-size: 15px;">require.js</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/text-js/" style="font-size: 10px;">text.js</a> <a href="/tags/webkit/" style="font-size: 10px;">webkit</a> <a href="/tags/wordpress/" style="font-size: 12.5px;">wordpress</a> <a href="/tags/二次开发/" style="font-size: 10px;">二次开发</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a> <a href="/tags/产品/" style="font-size: 10px;">产品</a> <a href="/tags/佛学/" style="font-size: 10px;">佛学</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/定时/" style="font-size: 10px;">定时</a> <a href="/tags/开源协议/" style="font-size: 10px;">开源协议</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/推送/" style="font-size: 10px;">推送</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/框架/" style="font-size: 12.5px;">框架</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/理财/" style="font-size: 10px;">理财</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/自动化/" style="font-size: 10px;">自动化</a> <a href="/tags/读书/" style="font-size: 15px;">读书</a> <a href="/tags/转载/" style="font-size: 12.5px;">转载</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/">简书</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">PHP开发工程师@温州。博客关于：技术、生活、读书、互联网。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">袁克强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">袁克强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">求知若渴，虚心若愚。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-使用Composer来管理PHP的依赖包" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2013/10/使用Composer来管理PHP的依赖包/" class="article-date">
+  	<time datetime="2013-10-22T00:00:00.000Z" itemprop="datePublished">2013-10-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Composer来管理PHP的依赖包
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Laravel/">Laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/框架/">框架</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如今有大量的PHP函数库、框架和组件可供选择，一个项目中可能会使用其中的若干——这就是项目的依赖。到目前为止，PHP还没有有效的 项目依赖管理方案。即使你手工的管理它们，你还不得不处理它们的自动加载问题。</p>
+<p>Composer 是PHP(5.3.2+)中用来管理依赖(dependency)关系的工具。你可以在自己的项目中声明所依赖的外部工具库(libraries)，Composer会帮你安装这些依赖的库文件，并配置好自动加载路径。</p>
+<h3 id="全局安装Composer_(环境为mac_OSX_10-8-4)">全局安装Composer (环境为mac OSX 10.8.4)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl <span class="operator">-s</span>S https://getcomposer.org/installer | /usr/app/php5.<span class="number">3</span>/bin/php  </span><br><span class="line">$ mv composer.phar /usr/<span class="built_in">local</span>/bin/composer  </span><br><span class="line">$ composer</span><br></pre></td></tr></table></figure>
+<h3 id="如何定义和安装依赖">如何定义和安装依赖</h3><p>首先，在项目所在目录创建文件composer.json，下面是一个依赖Twig例子：    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;    </span><br><span class="line">    <span class="string">"require"</span>:&#123;       </span><br><span class="line">         <span class="string">"twig/twig"</span>: <span class="string">"1.8.*"</span>   </span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第二步：在项目根目录运行：  </p>
+<pre><code class="bash">$ composer install
+</code></pre>
+<p>这会在vendors/下载和安装项目依赖。最后在应用的PHP入口文件添加下面代码，告诉PHP使用Composer自动加载器加载项目的依赖库：  </p>
+<pre><code class="php"><span class="preprocessor">&lt;?php</span> <span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;
+</code></pre>
+<p>现在你就可以使用项目依赖的库了，它们会在需要的时候自动加载。  </p>
+<h3 id="最后，使用composer安装我最喜欢的laravel框架">最后，使用composer安装我最喜欢的laravel框架</h3><p>1.从github下载laravel框架<br>2.解压laravel到网站根目录并执行composer install来安装。  </p>
+<pre><code class="bash">$ <span class="built_in">cd</span> /usr/app/laravel &amp;&amp; composer install
+</code></pre>
+<ol>
+<li>在浏览器输入<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a> 检测安装是否成功  </li>
+</ol>
+<p><img src="http://7xnv0h.com1.z0.glb.clouddn.com/2853030364039488816.png" alt="Atl laravel"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/11/强大的Web包管理工具-bower/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          强大的Web包管理工具-bower
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/10/[转]JavaScript 语言基础知识点总结(思维导图)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 语言基础知识点总结（思维导图）[转]</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="使用Composer来管理PHP的依赖包" data-title="使用Composer来管理PHP的依赖包" data-url="http://iscript.github.io/2013/10/使用Composer来管理PHP的依赖包/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 袁克强
+    	</div>
+      	<div class="footer-right">
+      		by <a href="http://hexo.io/" target="_blank">Hexo</a> <script src="http://s16.cnzz.com/stat.php?id=5673277&web_id=5673277&show=pic1" language="JavaScript"></script>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39df0d7283640c00f78b622f3b7c72d6' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>
