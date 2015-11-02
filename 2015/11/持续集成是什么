@@ -16,7 +16,7 @@
 快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="持续集成是什么？">
-<meta property="og:url" content="http://iscript.github.io/2015/11/持续集成是什么？[转]/index.html">
+<meta property="og:url" content="http://iscript.github.io/2015/11/持续集成是什么">
 <meta property="og:site_name" content="袁克强的博客">
 <meta property="og:description" content="[转载自阮一峰的网络日志]
 
@@ -217,10 +217,10 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-持续集成是什么？[转]" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-持续集成是什么?" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/持续集成是什么？[转]/" class="article-date">
+      <a href="/2015/11/持续集成是什么?/" class="article-date">
   	<time datetime="2015-11-02T06:46:39.000Z" itemprop="datePublished">2015-11-02</time>
 </a>
     </div>
@@ -343,7 +343,7 @@
 
 <div class="duoshuo">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="持续集成是什么？[转]" data-title="持续集成是什么？" data-url="http://iscript.github.io/2015/11/持续集成是什么？[转]/"></div>
+  <div class="ds-thread" data-thread-key="持续集成是什么?" data-title="持续集成是什么？" data-url="http://iscript.github.io/2015/11/持续集成是什么?/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
