@@ -3,25 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>linux下的定时任务crontab | 袁克强的博客</title>
+  <title>持续集成是什么？[转] | 袁克强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[环境centos 6.5]
-前言crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中(/var/spool/cron/以用户命名的文件)，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。  
-通常，crontab储存的指令被守护进程 - crond激活在后台运行，每">
+  <meta name="description" content="[转载自阮一峰的网络日志]
+
+互联网软件的开发和发布，已经形成了一套标准流程，最重要的组成部分就是持续集成（Continuous integration，简称CI）。  
+本文简要介绍持续集成的概念和做法。  
+  
+一、概念持续集成指的是，频繁地（一天多次）将代码集成到主干。  
+它的好处主要有两个。  
+
+快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux下的定时任务crontab">
-<meta property="og:url" content="http://iscript.github.io/2014/08/linux下的定时任务crontab/index.html">
+<meta property="og:title" content="持续集成是什么？[转]">
+<meta property="og:url" content="http://iscript.github.io/2015/11/持续集成是什么？[转]/index.html">
 <meta property="og:site_name" content="袁克强的博客">
-<meta property="og:description" content="[环境centos 6.5]
-前言crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中(/var/spool/cron/以用户命名的文件)，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。  
-通常，crontab储存的指令被守护进程 - crond激活在后台运行，每">
-<meta property="og:image" content="http://7xnv0h.com1.z0.glb.clouddn.com/6608553066097013002.jpg">
-<meta property="og:updated_time" content="2015-10-29T02:55:23.000Z">
+<meta property="og:description" content="[转载自阮一峰的网络日志]
+
+互联网软件的开发和发布，已经形成了一套标准流程，最重要的组成部分就是持续集成（Continuous integration，简称CI）。  
+本文简要介绍持续集成的概念和做法。  
+  
+一、概念持续集成指的是，频繁地（一天多次）将代码集成到主干。  
+它的好处主要有两个。  
+
+快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/bg2015092301.png">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/bg2015092302.jpg">
+<meta property="og:updated_time" content="2015-11-02T07:10:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下的定时任务crontab">
-<meta name="twitter:description" content="[环境centos 6.5]
-前言crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中(/var/spool/cron/以用户命名的文件)，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。  
-通常，crontab储存的指令被守护进程 - crond激活在后台运行，每">
+<meta name="twitter:title" content="持续集成是什么？[转]">
+<meta name="twitter:description" content="[转载自阮一峰的网络日志]
+
+互联网软件的开发和发布，已经形成了一套标准流程，最重要的组成部分就是持续集成（Continuous integration，简称CI）。  
+本文简要介绍持续集成的概念和做法。  
+  
+一、概念持续集成指的是，频繁地（一天多次）将代码集成到主干。  
+它的好处主要有两个。  
+
+快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。">
   
     <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
   
@@ -198,11 +217,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-linux下的定时任务crontab" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-持续集成是什么？[转]" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/08/linux下的定时任务crontab/" class="article-date">
-  	<time datetime="2014-08-27T00:06:17.000Z" itemprop="datePublished">2014-08-27</time>
+      <a href="/2015/11/持续集成是什么？[转]/" class="article-date">
+  	<time datetime="2015-11-02T06:46:39.000Z" itemprop="datePublished">2015-11-02</time>
 </a>
     </div>
   
@@ -215,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux下的定时任务crontab
+      持续集成是什么？[转]
     </h1>
   
 
@@ -224,7 +243,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/定时/">定时</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/持续集成/">持续集成</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
 	</div>
 
         
@@ -235,39 +254,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[环境centos 6.5]</p>
-<h3 id="前言">前言</h3><p>crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中(/var/spool/cron/以用户命名的文件)，以供之后读取和执行。该词来源于希腊语 chronos(χρνο)，原意是时间。  </p>
-<p>通常，crontab储存的指令被守护进程 - crond激活在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。  </p>
-<h3 id="启动crond进程">启动crond进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service crond start</span><br></pre></td></tr></table></figure>
-<p>若没安装请先安装：  </p>
-<pre><code class="bash">$ yum install vixie-cron
-$ yum install crontabs
-</code></pre>
-<h3 id="crontab常见命令：">crontab常见命令：</h3><p>crontab -e 编辑crontab文件，编辑后crond进程自动读取<br>crontab -l 列出用户crontab文件的详细内容<br>crontab -r 删除crontab文件  </p>
-<h3 id="crontab文件格式">crontab文件格式</h3><p>crontab文件由6部分组成  </p>
+        <blockquote>
+<p>[转载自<a href="http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html" target="_blank" rel="external">阮一峰的网络日志</a>]</p>
+</blockquote>
+<p>互联网软件的开发和发布，已经形成了一套标准流程，最重要的组成部分就是持续集成（Continuous integration，简称CI）。  </p>
+<p>本文简要介绍持续集成的概念和做法。  </p>
+<p><img src="https://dn-yuankeqiang.qbox.me/bg2015092301.png" alt="test">  </p>
+<h3 id="一、概念">一、概念</h3><p>持续集成指的是，频繁地（一天多次）将代码集成到主干。  </p>
+<p>它的好处主要有两个。  </p>
 <ol>
-<li>minute 一小时中的哪一分钟[0-59]</li>
-<li>hour 一天中的哪一小时[0-23]</li>
-<li>day-of-month 一月中的哪一天[1-31]</li>
-<li>month-of-year 一年中的哪一月[1-12]</li>
-<li>day-of-week 一周中的哪一天[0-6]</li>
-<li>commands 执行的命令</li>
+<li>快速发现错误。每完成一点更新，就集成到主干，可以快速发现错误，定位错误也比较容易。  </li>
+<li>防止分支大幅偏离主干。如果不是经常集成，主干又在不断更新，会导致以后集成的难度变大，甚至难以集成。   </li>
 </ol>
-<p><img src="http://7xnv0h.com1.z0.glb.clouddn.com/6608553066097013002.jpg" alt="ykq"></p>
-<p>这些选项都不能为空，如果用户不需要制定其中的几项，可以使用*表示任何时间。</p>
-<p>每个时间字段都可以指定多个值，可以用逗号隔开, 5-8 */5   </p>
-<pre><code class="bash"><span class="number">15</span> <span class="number">3</span> * * <span class="number">1</span>-<span class="number">5</span> <span class="built_in">echo</span> <span class="number">111</span> &gt; aa.txt
-</code></pre>
-<p>如上面标示每周一到周5的3点15分执行该计划任务</p>
-<h3 id="哪些用户可以使用crontab命令">哪些用户可以使用crontab命令</h3><ul>
-<li>/etc/cron.allow 如果这个文件存在，那么只有在此文件中的用户可以使用crontab命令，如果文件不存在则查找/etc/cron.deny</li>
-<li>/etc/cron.deny 如果这个文件存在，则在此文件中的用户都不能使用crontab命令</li>
-<li>如果2个文件都不存在，则只有root能使用crontab命令</li>
-<li>如果2个文件都存在，且均为空，则所有用户都能使用crontab命令  </li>
+<p>持续集成的目的，就是让产品可以快速迭代，同时还能保持高质量。它的核心措施是，代码集成到主干之前，必须通过自动化测试。只要有一个测试用例失败，就不能集成。  </p>
+<p>Martin Fowler说过，”持续集成并不能消除Bug，而是让它们非常容易发现和改正。”  </p>
+<p>与持续集成相关的，还有两个概念，分别是持续交付和持续部署。  </p>
+<h3 id="二、持续交付">二、持续交付</h3><p>持续交付（Continuous delivery）指的是，频繁地将软件的新版本，交付给质量团队或者用户，以供评审。如果评审通过，代码就进入生产阶段。  </p>
+<p>持续交付可以看作持续集成的下一步。它强调的是，不管怎么更新，软件是随时随地可以交付的。  </p>
+<h3 id="三、持续部署">三、持续部署</h3><p>持续部署（continuous deployment）是持续交付的下一步，指的是代码通过评审以后，自动部署到生产环境。  </p>
+<p>持续部署的目标是，代码在任何时刻都是可部署的，可以进入生产阶段。  </p>
+<p>持续部署的前提是能自动化完成测试、构建、部署等步骤。它与持续交付的区别，可以参考下图。  </p>
+<p><img src="https://dn-yuankeqiang.qbox.me/bg2015092302.jpg" alt="test">  </p>
+<h3 id="四、流程">四、流程</h3><p>根据持续集成的设计，代码从提交到生产，整个过程有以下几步。  </p>
+<p>4.1 提交<br>流程的第一步，是开发者向代码仓库提交代码。所有后面的步骤都始于本地代码的一次提交（commit）。  </p>
+<p>4.2 测试（第一轮）<br>代码仓库对commit操作配置了钩子（hook），只要提交代码或者合并进主干，就会跑自动化测试。<br>测试有好几种。  </p>
+<ul>
+<li>单元测试：针对函数或模块的测试  </li>
+<li>集成测试：针对整体产品的某个功能的测试，又称功能测试  </li>
+<li>端对端测试：从用户界面直达数据库的全链路测试  </li>
 </ul>
-<h3 id="定时任务结合PHP">定时任务结合PHP</h3><p>定时执行php很简单，只需要把命令换成php脚本就行了，如下表示每隔1分钟执行index.php  </p>
-<pre><code class="bash">*/<span class="number">1</span> * * * * php /usr/www/<span class="built_in">test</span>/index.php
-</code></pre>
+<p>第一轮至少要跑单元测试。  </p>
+<p>4.3 构建<br>通过第一轮测试，代码就可以合并进主干，就算可以交付了。  </p>
+<p>交付后，就先进行构建（build），再进入第二轮测试。所谓构建，指的是将源码转换为可以运行的实际代码，比如安装依赖，配置各种资源（样式表、JS脚本、图片）等等。  </p>
+<p>常用的构建工具如下。  </p>
+<ul>
+<li><a href="http://jenkins-ci.org/" target="_blank" rel="external">Jenkins</a>   </li>
+<li><a href="https://travis-ci.com/" target="_blank" rel="external">Travis</a>  </li>
+<li><a href="https://www.codeship.io/" target="_blank" rel="external">Codeship</a>  </li>
+<li><a href="http://stridercd.com/" target="_blank" rel="external">Strider</a>  </li>
+</ul>
+<p>Jenkins和Strider是开源软件，Travis和Codeship对于开源项目可以免费使用。它们都会将构建和测试，在一次运行中执行完成。  </p>
+<p>4.4 测试（第二轮）<br>构建完成，就要进行第二轮测试。如果第一轮已经涵盖了所有测试内容，第二轮可以省略，当然，这时构建步骤也要移到第一轮测试前面。  </p>
+<p>第二轮是全面测试，单元测试和集成测试都会跑，有条件的话，也要做端对端测试。所有测试以自动化为主，少数无法自动化的测试用例，就要人工跑。  </p>
+<p>需要强调的是，新版本的每一个更新点都必须测试到。如果测试的覆盖率不高，进入后面的部署阶段后，很可能会出现严重的问题。  </p>
+<p>4.5 部署<br>通过了第二轮测试，当前代码就是一个可以直接部署的版本（artifact）。将这个版本的所有文件打包（ tar filename.tar * ）存档，发到生产服务器。  </p>
+<p>生产服务器将打包文件，解包成本地的一个目录，再将运行路径的符号链接（symlink）指向这个目录，然后重新启动应用。这方面的部署工具有Ansible，Chef，Puppet等。  </p>
+<p>4.6 回滚<br>一旦当前版本发生问题，就要回滚到上一个版本的构建结果。最简单的做法就是修改一下符号链接，指向上一个版本的目录。  </p>
+<h3 id="五、参考链接">五、参考链接</h3><p>Gergely Nemeth, <a href="https://blog.risingstack.com/continuous-deployment-of-node-js-applications/" target="_blank" rel="external">Continuous Deployment of Node.js Applications</a><br>Codeship, <a href="https://codeship.com/continuous-integration-essentials" target="_blank" rel="external">Continuous Integration Essentials</a>   </p>
 
       
     </div>
@@ -277,18 +310,9 @@ $ yum install crontabs
     
 <nav id="article-nav">
   
-    <a href="/2014/09/cookie有关的术语/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          cookie有关的术语
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/08/《佛学入门》/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《佛学入门》</div>
+    <a href="/2015/10/使用融云为你的App添加即时通讯功能/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用融云为你的App添加即时通讯功能</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -319,7 +343,7 @@ $ yum install crontabs
 
 <div class="duoshuo">
 <!-- 多说评论框 start -->
-  <div class="ds-thread" data-thread-key="linux下的定时任务crontab" data-title="linux下的定时任务crontab" data-url="http://iscript.github.io/2014/08/linux下的定时任务crontab/"></div>
+  <div class="ds-thread" data-thread-key="持续集成是什么？[转]" data-title="持续集成是什么？[转]" data-url="http://iscript.github.io/2015/11/持续集成是什么？[转]/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
