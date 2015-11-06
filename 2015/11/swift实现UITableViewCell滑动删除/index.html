@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 总结 | 袁克强的博客</title>
+  <title>swift实现UITableViewCell滑动删除 | 袁克强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="袁克强的博客">
-<meta property="og:url" content="http://iscript.github.io/tags/总结/index.html">
+  <meta name="description" content="UITableViewCell滑动删除实现Cell的滑动删除，只需重写UITableViewDelegate代理中的如下2个方法。  
+
+// 进入编辑模式，按下编辑按钮后执行  
+func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift实现UITableViewCell滑动删除">
+<meta property="og:url" content="http://iscript.github.io/2015/11/swift实现UITableViewCell滑动删除/index.html">
 <meta property="og:site_name" content="袁克强的博客">
-<meta property="og:description" content="description">
+<meta property="og:description" content="UITableViewCell滑动删除实现Cell的滑动删除，只需重写UITableViewDelegate代理中的如下2个方法。  
+
+// 进入编辑模式，按下编辑按钮后执行  
+func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAt">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/uitableviewcell11.gif">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/uitableviewcell2.gif">
+<meta property="og:updated_time" content="2015-11-06T06:40:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="袁克强的博客">
-<meta name="twitter:description" content="description">
+<meta name="twitter:title" content="swift实现UITableViewCell滑动删除">
+<meta name="twitter:description" content="UITableViewCell滑动删除实现Cell的滑动删除，只需重写UITableViewDelegate代理中的如下2个方法。  
+
+// 进入编辑模式，按下编辑按钮后执行  
+func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAt">
   
     <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
   
@@ -190,53 +202,132 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-swift实现UITableViewCell滑动删除" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/10/[转]JavaScript 语言基础知识点总结(思维导图)/" class="archive-article-date">
-  	<time datetime="2013-10-20T01:06:17.000Z" itemprop="datePublished">Oct 20</time>
+    <div class="article-meta">
+      <a href="/2015/11/swift实现UITableViewCell滑动删除/" class="article-date">
+  	<time datetime="2015-11-06T06:00:39.000Z" itemprop="datePublished">2015-11-06</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/[转]JavaScript 语言基础知识点总结(思维导图)/">JavaScript 语言基础知识点总结（思维导图）[转]</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      swift实现UITableViewCell滑动删除
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="UITableViewCell滑动删除">UITableViewCell滑动删除</h3><p>实现Cell的滑动删除，只需重写UITableViewDelegate代理中的如下2个方法。  </p>
+<pre><code class="swift">
+<span class="comment">// 进入编辑模式，按下编辑按钮后执行  </span>
+<span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)</span></span> {
+    <span class="comment">//删除数组中的数据</span>
+    <span class="keyword">self</span>.dataArray.removeAtIndex(indexPath.row);  
+    <span class="comment">//删除单元格</span>
+    <span class="keyword">self</span>.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: <span class="type">UITableViewRowAnimation</span>.<span class="type">Top</span>);
+}
+
+<span class="comment">//修改文字  </span>
+<span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="type">String</span>? {
+    <span class="keyword">return</span> <span class="string">"啊~不要"</span>;
+}
+</code></pre>
+<p> <img src="https://dn-yuankeqiang.qbox.me/uitableviewcell11.gif" style="max-width:280px"></p>
+<h3 id="UITableview_自定义Action">UITableview 自定义Action</h3><p>上面只实现了UITableViewCell的单个编辑Action，若要自定义Action，可使用如下的代理方法。  </p>
+<pre><code class="swift">
+<span class="func"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath)</span></span> -&gt; [<span class="type">UITableViewRowAction</span>]? {
+    <span class="keyword">let</span> action1 = <span class="type">UITableViewRowAction</span>(style: <span class="type">UITableViewRowActionStyle</span>.<span class="type">Default</span>, title: <span class="string">"删除"</span>) { (action , index) -&gt; <span class="type">Void</span> <span class="keyword">in</span>
+        <span class="built_in">print</span>(<span class="string">"点击了删除"</span>);
+    }
+    <span class="keyword">let</span> action2 = <span class="type">UITableViewRowAction</span>(style: <span class="type">UITableViewRowActionStyle</span>.<span class="type">Normal</span>, title: <span class="string">"取消关注"</span>) { (action , index) -&gt; <span class="type">Void</span> <span class="keyword">in</span>
+        <span class="built_in">print</span>(<span class="string">"点击了取消关注"</span>);
+    }
+    <span class="keyword">return</span> [action1,action2];
+}
+</code></pre>
+<p> <img src="https://dn-yuankeqiang.qbox.me/uitableviewcell2.gif" style="max-width:280px"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/11/持续集成是什么/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">持续集成是什么？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="swift实现UITableViewCell滑动删除" data-title="swift实现UITableViewCell滑动删除" data-url="http://iscript.github.io/2015/11/swift实现UITableViewCell滑动删除/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
 
 </div>
       <footer id="footer">
@@ -266,9 +357,9 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}

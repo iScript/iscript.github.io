@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 总结 | 袁克强的博客</title>
+  <title>袁克强的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="袁克强的博客">
-<meta property="og:url" content="http://iscript.github.io/tags/总结/index.html">
+<meta property="og:url" content="http://iscript.github.io/page/4/index.html">
 <meta property="og:site_name" content="袁克强的博客">
 <meta property="og:description" content="description">
 <meta name="twitter:card" content="summary">
@@ -192,52 +192,118 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-使用gruntJs构建javascript项目" class="article article-type-post" itemscope itemprop="blogPost">
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2013/10/[转]JavaScript 语言基础知识点总结(思维导图)/" class="archive-article-date">
-  	<time datetime="2013-10-20T01:06:17.000Z" itemprop="datePublished">Oct 20</time>
+    <div class="article-meta">
+      <a href="/2013/10/使用gruntJs构建javascript项目/" class="article-date">
+  	<time datetime="2013-10-15T00:00:00.000Z" itemprop="datePublished">2013-10-15</time>
 </a>
-        </div>
-    	 
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/[转]JavaScript 语言基础知识点总结(思维导图)/">JavaScript 语言基础知识点总结（思维导图）[转]</a>
+      <a class="article-title" href="/2013/10/使用gruntJs构建javascript项目/">使用gruntJs构建javascript项目</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>gruntJs，一个专为JavaScript提供的自动化项目构建工具。. 如果你需要重复的执行像压缩, 编译, 单元测试, 代码检查以及打包发布的任务. 那么你可以使用Grunt来处理这些任务, 你所需要做的只是配置好Grunt, 这样能很大程度的简化你的工作.</p>
+<p>官网 : <a href="http://gruntjs.com/" target="_blank" rel="external">http://gruntjs.com/</a><br>github : <a href="https://github.com/gruntjs/grunt" target="_blank" rel="external">https://github.com/gruntjs/grunt</a>  </p>
+<h3 id="安装grunt">安装grunt</h3><pre><code class="bash">$ npm install -g grunt-cli  
+$ npm install -g grunt
+</code></pre>
+<p>恩，你没看错。通过npm(Node Package Manager)只需要2条命令就完成了grunt的安装。</p>
+<h3 id="在项目中使用grunt">在项目中使用grunt</h3><p>想要在项目中使用grunt，首先需要往项目里添加两个文件:package.json和Gruntfile.js<br>package.json:该文件用来为npm存放项目配置的元数据，基于Packages/1.1 规范。<br>在这个文件里你可以定义你的应用名称( name )、应用描述( description )、应用依赖模块( dependencies )、开发环境依赖模块( devDependencies )等。<br>如：  </p>
+<pre><code class="javascript">{
+    <span class="string">"name"</span>: <span class="string">"hello world"</span>,
+    <span class="string">"author"</span>: <span class="string">"ykq"</span>,
+    <span class="string">"homepage"</span>: <span class="string">"http://iscript.github.io"</span>, 
+     <span class="string">"dependencies"</span>: { 
+         <span class="string">"express"</span>: <span class="string">"latest"</span> 
+     }, 
+     <span class="string">"devDependencies"</span>: { 
+         <span class="string">"grunt"</span>: <span class="string">"latest"</span>, 
+         <span class="string">"grunt-contrib-uglify"</span>: <span class="string">"latest"</span>, 
+     } 
+}
+</code></pre>
+<p>接着在项目目录下执行npm install即可根据package.json安装项目所需的依赖。</p>
+<p>Gruntfile.js:这个文件就是grunt的配置了，其中详细定义了每个任务的细节和执行任务的顺序等。  </p>
+<pre><code class="javascript"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>{
+grunt.initConfig({
+    pkg: grunt.file.readJSON(<span class="string">'package.json'</span>),
+    <span class="comment">//压缩任务</span>
+    uglify : {
+        options : {
+        banner : <span class="string">'/*! &lt;%= pkg.name %&gt; */\n'</span>
+        },
+        build : { src : <span class="string">'app.js'</span>,dest : <span class="string">'app.min.js'</span>} 
+    } 
+}); 
+<span class="comment">//加载grunt需要的插件： </span>
+grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>); 
+
+<span class="comment">//告诉grunt该怎么执行这些任务： </span>
+grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>]); 
+};
+</code></pre>
+<p>上面这段代码就是通过grunt来执行一个简单的压缩任务。<br>在项目所在目录，命令行输入grunt即可将app.js压缩成app.min.js。</p>
+<h3 id="grunt插件">grunt插件</h3><p>grunt只是一个自动化管理工具，不管是安装或配置都不复杂，复杂度源于成百上千的第三方插件。<br>常用插件：  </p>
+<ul>
+<li>grunt-contrib-uglify ：压缩js代码</li>
+<li>grunt-contrib-concat ：合并js文件</li>
+<li>grunt-contrib-qunit ：单元测试</li>
+<li>grunt-contrib-jshint ：js代码检查</li>
+<li>grunt-contrib-watch ：监控文件修改并重新执行注册的任务 </li>
+</ul>
+<p>官方插件清单:<a href="http://gruntjs.com/plugins" target="_blank" rel="external">http://gruntjs.com/plugins</a></p>
+<h4 id="使用ng-Boilerplate来通过grunt完美构建AngularJs项目">使用ng-Boilerplate来通过grunt完美构建AngularJs项目</h4><p><a href="https://github.com/ngbp/ng-boilerplate" target="_blank" rel="external">https://github.com/ngbp/ng-boilerplate</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grunt/">grunt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/自动化/">自动化</a></li></ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      
+      <div class="clearfix"></div>
+    </div>
     
+  </div>
+  
+</article>
 
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -265,10 +331,10 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: false,
+		isHome: true,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
