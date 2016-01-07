@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="IjYHkLvavX" />
+  
+  <title>常用Git命令清单 | 袁克强的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[转载自阮一峰的网络日志]  
+我每天使用 Git ，但是很多命令记不住。一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
+
+下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
+
+Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库  
+
+一、新建代码库# 在当前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用Git命令清单">
+<meta property="og:url" content="http://iscript.github.io/2016/01/常用Git命令清单/index.html">
+<meta property="og:site_name" content="袁克强的博客">
+<meta property="og:description" content="[转载自阮一峰的网络日志]  
+我每天使用 Git ，但是很多命令记不住。一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
+
+下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
+
+Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库  
+
+一、新建代码库# 在当前">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/bg2015120901.png">
+<meta property="og:image" content="https://dn-yuankeqiang.qbox.me/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.jpg">
+<meta property="og:updated_time" content="2016-01-07T02:19:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用Git命令清单">
+<meta name="twitter:description" content="[转载自阮一峰的网络日志]  
+我每天使用 Git ，但是很多命令记不住。一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
+
+下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。
+
+Workspace：工作区
+Index / Stage：暂存区
+Repository：仓库区（或本地仓库）
+Remote：远程仓库  
+
+一、新建代码库# 在当前">
+  
+    <link rel="alternative" href="/atom.xml" title="袁克强的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <!--[if lt IE 11]>
+  <script>
+  alert("请不要使用IE浏览器访问本站");
+  </script>
+  <![endif]-->
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">袁克强</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">求知若渴，虚心若愚。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/BSD/" style="font-size: 10px;">BSD</a> <a href="/tags/Envoy/" style="font-size: 10px;">Envoy</a> <a href="/tags/GD库/" style="font-size: 10px;">GD库</a> <a href="/tags/Gecko/" style="font-size: 10px;">Gecko</a> <a href="/tags/Laravel/" style="font-size: 14px;">Laravel</a> <a href="/tags/MIT/" style="font-size: 10px;">MIT</a> <a href="/tags/Node-js/" style="font-size: 12px;">Node.js</a> <a href="/tags/PHP/" style="font-size: 18px;">PHP</a> <a href="/tags/RESTful/" style="font-size: 10px;">RESTful</a> <a href="/tags/angular-js/" style="font-size: 10px;">angular.js</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grunt/" style="font-size: 12px;">grunt</a> <a href="/tags/iOS/" style="font-size: 16px;">iOS</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mongoose/" style="font-size: 10px;">mongoose</a> <a href="/tags/node-js/" style="font-size: 12px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/psr/" style="font-size: 10px;">psr</a> <a href="/tags/require-js/" style="font-size: 14px;">require.js</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/socket/" style="font-size: 10px;">socket</a> <a href="/tags/swift/" style="font-size: 16px;">swift</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/text-js/" style="font-size: 10px;">text.js</a> <a href="/tags/webkit/" style="font-size: 10px;">webkit</a> <a href="/tags/wordpress/" style="font-size: 12px;">wordpress</a> <a href="/tags/二次开发/" style="font-size: 10px;">二次开发</a> <a href="/tags/互联网/" style="font-size: 10px;">互联网</a> <a href="/tags/产品/" style="font-size: 10px;">产品</a> <a href="/tags/佛学/" style="font-size: 10px;">佛学</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/定时/" style="font-size: 10px;">定时</a> <a href="/tags/开源协议/" style="font-size: 10px;">开源协议</a> <a href="/tags/异步/" style="font-size: 10px;">异步</a> <a href="/tags/总结/" style="font-size: 10px;">总结</a> <a href="/tags/持续集成/" style="font-size: 10px;">持续集成</a> <a href="/tags/推送/" style="font-size: 12px;">推送</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/框架/" style="font-size: 12px;">框架</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/理财/" style="font-size: 10px;">理财</a> <a href="/tags/编码规范/" style="font-size: 10px;">编码规范</a> <a href="/tags/翻译/" style="font-size: 10px;">翻译</a> <a href="/tags/自动化/" style="font-size: 12px;">自动化</a> <a href="/tags/融云/" style="font-size: 10px;">融云</a> <a href="/tags/读书/" style="font-size: 14px;">读书</a> <a href="/tags/转载/" style="font-size: 12px;">转载</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jianshu.com/">简书</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">PHP开发工程师@温州。博客关于：技术、生活、读书、互联网。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">袁克强</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://7xnv0h.com1.z0.glb.clouddn.com/avatar.jpeg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">袁克强</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">求知若渴，虚心若愚。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/iScript/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2710578101" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-常用Git命令清单" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/常用Git命令清单/" class="article-date">
+  	<time datetime="2016-01-07T02:00:39.000Z" itemprop="datePublished">2016-01-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      常用Git命令清单
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[<a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">转载自阮一峰的网络日志</a>]  </p>
+<p>我每天使用 Git ，但是很多命令记不住。<br>一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。</p>
+<p><img src="https://dn-yuankeqiang.qbox.me/bg2015120901.png" alt="git"></p>
+<p>下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。</p>
+<ul>
+<li>Workspace：工作区</li>
+<li>Index / Stage：暂存区</li>
+<li>Repository：仓库区（或本地仓库）</li>
+<li>Remote：远程仓库  </li>
+</ul>
+<h3 id="一、新建代码库">一、新建代码库</h3><pre><code><span class="comment"># 在当前目录新建一个Git代码库</span>
+$ git init
+
+<span class="comment"># 新建一个目录，将其初始化为Git代码库</span>
+$ git init [project-name]
+
+<span class="comment"># 下载一个项目和它的整个代码历史</span>
+$ git <span class="keyword">clone</span> <span class="title">[url</span>]
+</code></pre><h3 id="二、配置">二、配置</h3><p>Git的设置文件为.gitconfig，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。 </p>
+<pre><code><span class="comment"># 显示当前的Git配置</span>
+<span class="variable">$ </span>git config --list
+
+<span class="comment"># 编辑Git配置文件</span>
+<span class="variable">$ </span>git config -e [--global]
+
+<span class="comment"># 设置提交代码时的用户信息</span>
+<span class="variable">$ </span>git config [--global] user.name <span class="string">"[name]"</span>
+<span class="variable">$ </span>git config [--global] user.email <span class="string">"[email address]"</span>
+</code></pre><h3 id="三、增加/删除文件">三、增加/删除文件</h3><pre><code><span class="comment"># 添加指定文件到暂存区</span>
+<span class="variable">$ </span>git add [file1] [file2] ...
+
+<span class="comment"># 添加指定目录到暂存区，包括子目录</span>
+<span class="variable">$ </span>git add [dir]
+
+<span class="comment"># 添加当前目录的所有文件到暂存区</span>
+<span class="variable">$ </span>git add .
+
+<span class="comment"># 删除工作区文件，并且将这次删除放入暂存区</span>
+<span class="variable">$ </span>git rm [file1] [file2] ...
+
+<span class="comment"># 停止追踪指定文件，但该文件会保留在工作区</span>
+<span class="variable">$ </span>git rm --cached [file]
+
+<span class="comment"># 改名文件，并且将这个改名放入暂存区</span>
+<span class="variable">$ </span>git mv [file-original] [file-renamed]
+</code></pre><h3 id="四、代码提交">四、代码提交</h3><pre><code>
+# 提交暂存区到仓库区
+$ git <span class="operator"><span class="keyword">commit</span> -<span class="keyword">m</span> [message]
+
+# 提交暂存区的指定文件到仓库区
+$ git <span class="keyword">commit</span> [file1] [file2] ... -<span class="keyword">m</span> [message]
+
+# 提交工作区自上次<span class="keyword">commit</span>之后的变化，直接到仓库区
+$ git <span class="keyword">commit</span> -a
+
+# 提交时显示所有diff信息
+$ git <span class="keyword">commit</span> -v
+
+# 使用一次新的<span class="keyword">commit</span>，替代上一次提交
+# 如果代码没有任何新变化，则用来改写上一次<span class="keyword">commit</span>的提交信息
+$ git <span class="keyword">commit</span> <span class="comment">--amend -m [message]</span>
+
+# 重做上一次<span class="keyword">commit</span>，并包括指定文件的新变化
+$ git <span class="keyword">commit</span> <span class="comment">--amend [file1] [file2] ...</span></span>
+</code></pre><h3 id="五、分支">五、分支</h3><pre><code>
+<span class="comment"># 列出所有本地分支</span>
+<span class="variable">$ </span>git branch
+
+<span class="comment"># 列出所有远程分支</span>
+<span class="variable">$ </span>git branch -r
+
+<span class="comment"># 列出所有本地分支和远程分支</span>
+<span class="variable">$ </span>git branch -a
+
+<span class="comment"># 新建一个分支，但依然停留在当前分支</span>
+<span class="variable">$ </span>git branch [branch-name]
+
+<span class="comment"># 新建一个分支，并切换到该分支</span>
+<span class="variable">$ </span>git checkout -b [branch]
+
+<span class="comment"># 新建一个分支，指向指定commit</span>
+<span class="variable">$ </span>git branch [branch] [commit]
+
+<span class="comment"># 新建一个分支，与指定的远程分支建立追踪关系</span>
+<span class="variable">$ </span>git branch --track [branch] [remote-branch]
+
+<span class="comment"># 切换到指定分支，并更新工作区</span>
+<span class="variable">$ </span>git checkout [branch-name]
+
+<span class="comment"># 建立追踪关系，在现有分支与指定的远程分支之间</span>
+<span class="variable">$ </span>git branch --set-upstream [branch] [remote-branch]
+
+<span class="comment"># 合并指定分支到当前分支</span>
+<span class="variable">$ </span>git merge [branch]
+
+<span class="comment"># 选择一个commit，合并进当前分支</span>
+<span class="variable">$ </span>git cherry-pick [commit]
+
+<span class="comment"># 删除分支</span>
+<span class="variable">$ </span>git branch -d [branch-name]
+
+<span class="comment"># 删除远程分支</span>
+<span class="variable">$ </span>git push origin --delete [branch-name]
+<span class="variable">$ </span>git branch -dr [remote/branch]
+</code></pre><h3 id="六、标签">六、标签</h3><pre><code>
+<span class="comment"># 列出所有tag</span>
+$ git <span class="keyword">tag</span>
+
+<span class="title"># 新建一个tag</span>在当前commit
+$ git <span class="keyword">tag</span> <span class="title">[tag</span>]
+
+<span class="comment"># 新建一个tag在指定commit</span>
+$ git <span class="keyword">tag</span> <span class="title">[tag</span>] [commit]
+
+<span class="comment"># 删除本地tag</span>
+$ git <span class="keyword">tag</span> <span class="title">-d</span> [<span class="operator">tag</span>]
+
+<span class="comment"># 删除远程tag</span>
+$ git push origin :refs/tags/[tagName]
+
+<span class="comment"># 查看tag信息</span>
+$ git show [<span class="operator">tag</span>]
+
+<span class="comment"># 提交指定tag</span>
+$ git push [remote] [<span class="operator">tag</span>]
+
+<span class="comment"># 提交所有tag</span>
+$ git push [remote] --tags
+
+<span class="comment"># 新建一个分支，指向某个tag</span>
+$ git checkout -b [branch] [<span class="operator">tag</span>]
+</code></pre><h3 id="七、查看信息">七、查看信息</h3><pre><code><span class="comment"># 显示有变更的文件</span>
+$ git status
+
+<span class="comment"># 显示当前分支的版本历史</span>
+$ git <span class="command">log</span>
+
+<span class="comment"># 显示commit历史，以及每次commit发生变更的文件</span>
+$ git <span class="command">log</span> <span class="comment">--stat</span>
+
+<span class="comment"># 显示某个commit之后的所有变动，每个commit占据一行</span>
+$ git <span class="command">log</span> [tag] HEAD <span class="comment">--pretty=format:%s</span>
+
+<span class="comment"># 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件</span>
+$ git <span class="command">log</span> [tag] HEAD <span class="comment">--grep feature</span>
+
+<span class="comment"># 显示某个文件的版本历史，包括文件改名</span>
+$ git <span class="command">log</span> <span class="comment">--follow [file]</span>
+$ git whatchanged [<span class="type">file</span>]
+
+<span class="comment"># 显示指定文件相关的每一次diff</span>
+$ git <span class="command">log</span> -p [<span class="type">file</span>]
+
+<span class="comment"># 显示指定文件是什么人在什么时间修改过</span>
+$ git blame [<span class="type">file</span>]
+
+<span class="comment"># 显示暂存区和工作区的差异</span>
+$ git diff
+
+<span class="comment"># 显示暂存区和上一个commit的差异</span>
+$ git diff <span class="comment">--cached [file]</span>
+
+<span class="comment"># 显示工作区与当前分支最新commit之间的差异</span>
+$ git diff HEAD
+
+<span class="comment"># 显示两次提交之间的差异</span>
+$ git diff [<span class="keyword">first</span>-branch]...[<span class="keyword">second</span>-branch]
+
+<span class="comment"># 显示某次提交的元数据和内容变化</span>
+$ git show [commit]
+
+<span class="comment"># 显示某次提交发生变化的文件</span>
+$ git show <span class="comment">--name-only [commit]</span>
+
+<span class="comment"># 显示某次提交时，某个文件的内容</span>
+$ git show [commit]:[filename]
+
+<span class="comment"># 显示当前分支的最近几次提交</span>
+$ git reflog
+</code></pre><h3 id="八、远程同步">八、远程同步</h3><pre><code>
+<span class="comment"># 下载远程仓库的所有变动</span>
+<span class="variable">$ </span>git fetch [remote]
+
+<span class="comment"># 显示所有远程仓库</span>
+<span class="variable">$ </span>git remote -v
+
+<span class="comment"># 显示某个远程仓库的信息</span>
+<span class="variable">$ </span>git remote show [remote]
+
+<span class="comment"># 增加一个新的远程仓库，并命名</span>
+<span class="variable">$ </span>git remote add [shortname] [url]
+
+<span class="comment"># 取回远程仓库的变化，并与本地分支合并</span>
+<span class="variable">$ </span>git pull [remote] [branch]
+
+<span class="comment"># 上传本地指定分支到远程仓库</span>
+<span class="variable">$ </span>git push [remote] [branch]
+
+<span class="comment"># 强行推送当前分支到远程仓库，即使有冲突</span>
+<span class="variable">$ </span>git push [remote] --force
+
+<span class="comment"># 推送所有分支到远程仓库</span>
+<span class="variable">$ </span>git push [remote] --all
+</code></pre><h3 id="九、撤销">九、撤销</h3><pre><code># 恢复暂存区的指定文件到工作区
+$ git checkout [file]
+
+# 恢复某个<span class="operator"><span class="keyword">commit</span>的指定文件到工作区
+$ git checkout [<span class="keyword">commit</span>] [<span class="keyword">file</span>]
+
+# 恢复上一个<span class="keyword">commit</span>的所有文件到工作区
+$ git checkout .
+
+# 重置暂存区的指定文件，与上一次<span class="keyword">commit</span>保持一致，但工作区不变
+$ git <span class="keyword">reset</span> [<span class="keyword">file</span>]
+
+# 重置暂存区与工作区，与上一次<span class="keyword">commit</span>保持一致
+$ git <span class="keyword">reset</span> <span class="comment">--hard</span>
+
+# 重置当前分支的指针为指定<span class="keyword">commit</span>，同时重置暂存区，但工作区不变
+$ git <span class="keyword">reset</span> [<span class="keyword">commit</span>]
+
+# 重置当前分支的<span class="keyword">HEAD</span>为指定<span class="keyword">commit</span>，同时重置暂存区和工作区，与指定<span class="keyword">commit</span>一致
+$ git <span class="keyword">reset</span> <span class="comment">--hard [commit]</span>
+
+# 重置当前<span class="keyword">HEAD</span>为指定<span class="keyword">commit</span>，但保持暂存区和工作区不变
+$ git <span class="keyword">reset</span> <span class="comment">--keep [commit]</span>
+
+# 新建一个<span class="keyword">commit</span>，用来撤销指定<span class="keyword">commit</span>
+# 后者的所有变化都将被前者抵消，并且应用到当前分支
+$ git revert [<span class="keyword">commit</span>]</span>
+</code></pre><h3 id="十、其他">十、其他</h3><pre><code><span class="comment"># 生成一个可供发布的压缩包</span>
+<span class="variable">$ </span>git archive
+</code></pre><hr>
+<p><img src="https://dn-yuankeqiang.qbox.me/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.jpg" alt="git"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/Envoy任务执行器及自动化部署项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Envoy任务执行器及自动化部署项目</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<div class="duoshuo">
+<!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="常用Git命令清单" data-title="常用Git命令清单" data-url="http://iscript.github.io/2016/01/常用Git命令清单/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"yuankeqiang"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 袁克强
+    	</div>
+      	<div class="footer-right">
+      		by <a href="http://hexo.io/" target="_blank">Hexo</a> <script src="http://s16.cnzz.com/stat.php?id=5673277&web_id=5673277&show=pic1" language="JavaScript"></script>
+ <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F39df0d7283640c00f78b622f3b7c72d6' type='text/javascript'%3E%3C/script%3E"));
+</script>  
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>
