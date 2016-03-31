@@ -221,8 +221,13 @@
       
         <h3 id="SSH">SSH</h3><p>SSH（Secure Shell ）是一种网络协议，用于计算机之间的加密登录。</p>
 <h3 id="公钥登录">公钥登录</h3><p>公钥（Public Key）与私钥（Private Key）是通过一种算法得到的一个密钥对（即一个公钥和一个私钥），公钥是密钥对中公开的部分，私钥则是非公开的部分。<br>所谓”公钥登录”，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。</p>
-<h3 id="具体步骤">具体步骤</h3><h5 id="1-_通过ssh-keygen生成秘钥">1. 通过ssh-keygen生成秘钥</h5><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa  </span><br><span class="line"><span class="code">```</span> </span><br><span class="line">-t指定加密类型为rsa，运行该命令以后，会在$HOME/.ssh/目录下，会新生成两个文件：id<span class="emphasis">_rsa和id_</span>rsa.pub。前者是你的私钥，后者是你的公钥。</span><br><span class="line">![<span class="link_label">袁克强的博客</span>](<span class="link_url">http://dn-yuankeqiang.qbox.me/0F6F97CD-7321-47A2-872A-5D881797572D.png</span>)</span><br><span class="line"></span><br><span class="line"><span class="header">###### 2. 复制公钥到远程服务器   </span></span><br><span class="line"></span><br><span class="line"><span class="code">```</span>  </span><br><span class="line">$ scp id<span class="emphasis">_rsa.pub root@myhost.com:~/.ssh/id_</span>rsa.pub    </span><br><span class="line"><span class="code">```</span>  </span><br><span class="line"></span><br><span class="line"><span class="header">###### 3. 将公钥保存到authorized_keys文件</span></span><br><span class="line">登录远程服务器后，将公钥保存到authorized_keys文件。  </span><br><span class="line"></span><br><span class="line"><span class="code">```</span>  </span><br><span class="line">$ cd ~/.ssh </span><br><span class="line">$ cat id<span class="emphasis">_rsa.pub &gt;&gt; authorized_</span>keys</span><br></pre></td></tr></table></figure>
-<hr>
+<h3 id="具体步骤">具体步骤</h3><h5 id="1-_通过ssh-keygen生成秘钥">1. 通过ssh-keygen生成秘钥</h5><pre><code><span class="variable">$ </span>ssh-keygen -t rsa
+</code></pre><p>-t指定加密类型为rsa，运行该命令以后，会在$HOME/.ssh/目录下，会新生成两个文件：id_rsa和id_rsa.pub。前者是你的私钥，后者是你的公钥。<br><img src="http://dn-yuankeqiang.qbox.me/0F6F97CD-7321-47A2-872A-5D881797572D.png?imageView/2/w/500" alt="袁克强的博客"></p>
+<h6 id="2-_复制公钥到远程服务器">2. 复制公钥到远程服务器</h6><pre><code>$ scp id_rsa<span class="class">.pub</span> root@myhost<span class="class">.com</span>:~/.ssh/id_rsa.pub
+</code></pre><h6 id="3-_将公钥保存到authorized_keys文件">3. 将公钥保存到authorized_keys文件</h6><p>登录远程服务器后，将公钥保存到authorized_keys文件。  </p>
+<pre><code>$ cd ~/<span class="class">.ssh</span> 
+$ cat id_rsa<span class="class">.pub</span> &gt;&gt; authorized_keys
+</code></pre><hr>
 <p>至此，即可免密码登录远程服务器。</p>
 
       
